@@ -1,0 +1,10 @@
+%matplotlib inline
+
+data['month_year'] =  data.apply(lambda x: str(x['date'].year) + '-' + str(x['date'].month), axis = 1)
+
+# Group by the month and year and count the pull requests
+counts = counts = data.groupby('month_year').agg('count')
+
+
+# Plot the results
+counts.plot(kind='bar', figsize = (12,4))
