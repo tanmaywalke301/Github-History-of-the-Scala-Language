@@ -1,0 +1,2 @@
+# Merge the two DataFrames
+data = pulls.merge(pull_files , on = 'pid')
