@@ -1,0 +1,11 @@
+# Identify the last 10 pull requests
+last_10 = pulls.nlargest(10 , 'date')
+
+# Join the two data sets
+joined_pr = last_10.merge(pull_files , on = 'pid' , how = 'inner') 
+
+# Identify the unique files
+files = set(joined_pr['file'])
+
+# Print the results
+files
