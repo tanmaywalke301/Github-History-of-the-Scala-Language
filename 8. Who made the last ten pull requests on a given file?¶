@@ -1,0 +1,13 @@
+file = 'src/compiler/scala/reflect/reify/phases/Calculate.scala'
+
+# Select the pull requests that changed the target file
+file_pr = data[data['file'] == file]
+
+# Merge the obtained results with the pulls DataFrame
+joined_pr = file_pr.merge(pulls , on = 'pid')
+
+# Find the users of the last 10 most recent pull requests
+users_last_10 = set(file_pr.nlargest(10 , 'date')['user'])
+
+# Printing the results
+users_last_10
