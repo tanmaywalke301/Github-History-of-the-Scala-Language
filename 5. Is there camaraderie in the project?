@@ -1,0 +1,9 @@
+# Required for matplotlib
+%matplotlib inline
+
+# Group by the submitter
+by_user = data.groupby('user').agg('count')
+
+# Plot the histogram
+# ... YOUR CODE FOR TASK 5 ...
+by_user.hist()
